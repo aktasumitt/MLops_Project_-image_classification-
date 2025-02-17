@@ -111,7 +111,7 @@ class Training():
         try:
             
             # MLFLOW tracking
-            uri="https://dagshub.com/umitaktas/MLops_Project_-image_classification-.mlflow"
+            uri="https://dagshub.com/umitaktas/MLops_Project_-image_classification-.mlflow" 
             mlflow.set_tracking_uri(uri=uri)
             logger.info(f"MLflow was tracked on [{uri} ]")
             
