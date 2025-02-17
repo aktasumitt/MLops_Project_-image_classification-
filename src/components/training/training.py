@@ -8,11 +8,13 @@ from src.entity.artifact_entity import (ModelArtifact,
 from src.utils import save_as_json,load_obj,load_checkpoints,save_checkpoints,save_obj
 from torch.utils.data import DataLoader
 import torch
-import os,subprocess
 from src.logging.logger import logger
 from src.exception.exception import ExceptionBlock,sys
 import mlflow
 from mlflow.models import infer_signature
+
+import dagshub
+dagshub.init(repo_owner='umitaktas', repo_name='MLops_Project_-image_classification-', mlflow=True)
 
 
 class Training():
@@ -107,11 +109,9 @@ class Training():
     def start_training_with_mlflow(self):
         
         try:
-            # mlflow ui and other apps dont overlap
-            subprocess.Popen(["mlflow","ui"])
             
             # MLFLOW tracking
-            uri="http://127.0.0.1:5000"
+            uri="https://dagshub.com/umitaktas/MLops_Project_-image_classification-.mlflow"
             mlflow.set_tracking_uri(uri=uri)
             logger.info(f"MLflow was tracked on [{uri} ]")
             
