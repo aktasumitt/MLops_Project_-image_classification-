@@ -72,9 +72,6 @@ class TrainingPipeline():
         except Exception as e:
             ExceptionBlock(e,sys)     
                     
-if __name__=="__main__":
-    training_pipeline=TrainingPipeline()
-    _=training_pipeline.run_training_pipeline()
 
 
     
