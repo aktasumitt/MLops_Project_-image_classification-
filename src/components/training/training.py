@@ -12,9 +12,10 @@ from src.logging.logger import logger
 from src.exception.exception import ExceptionBlock,sys
 import mlflow
 from mlflow.models import infer_signature
+import subprocess
 
-import dagshub
-dagshub.init(repo_owner='umitaktas', repo_name='MLops_Project_-image_classification-', mlflow=True)
+# import dagshub
+# dagshub.init(repo_owner='umitaktas', repo_name='MLops_Project_-image_classification-', mlflow=True)
 
 
 class Training():
@@ -110,8 +111,15 @@ class Training():
         
         try:
             
+          # uri for mlflow track url in dagshub or local host
+          
+          # uri="https://dagshub.com/umitaktas/MLops_Project_-image_classification-.mlflow"   # for dagshub
+            uri="0.0.0.0:5000"      # for local host
+          
+          # mlflow ui and other apps dont overlap
+            subprocess.Popen(["mlflow","ui"])
+            
             # MLFLOW tracking
-            uri="https://dagshub.com/umitaktas/MLops_Project_-image_classification-.mlflow" 
             mlflow.set_tracking_uri(uri=uri)
             logger.info(f"MLflow was tracked on [{uri} ]")
             
