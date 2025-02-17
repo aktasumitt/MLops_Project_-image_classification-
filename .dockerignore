@@ -1,0 +1,7 @@
+venv/
+artifacts/
+callbacks/checkpoints/
+results/
+predict_artifacts/
+logs/
+artifacts/

@@ -1,0 +1,35 @@
+data_ingestion: 
+  valid_split_rate: 0.2
+  test_split_rate: 0.2
+  random_state: 42
+
+data_transformation:
+  image_resize_size: 128
+
+model:
+  channel_size: 3
+  img_size: 128
+  label_size: 7
+
+train:
+  batch_size: 64
+  beta1: 0.9
+  beta2: 0.99
+  lr: 0.001
+  epoch: 10
+  device: cuda
+  load_checkpoints: False
+
+test:
+  batch_size: 64
+  device: cuda
+  load_checkpoints: False
+  save_tested_model: False
+
+prediction:
+  batch_size: 64
+  image_size: 128
+  device: cuda
+
+  
+

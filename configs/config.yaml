@@ -1,0 +1,51 @@
+data_ingestion:
+  local_data_folder: local_data/images
+  save_dir: artifacts/data_ingestion
+  train_img_path_name: train_paths.json
+  test_img_path_name: test_paths.json
+  valid_img_path_name: valid_img.json
+
+
+data_transformation:
+  save_dir: artifacts/data_transformation
+  train_dataset_name: train_dataset.pkl
+  valid_dataset_name: valid_dataset.pkl
+  test_dataset_name: test_dataset.pkl
+
+
+model:
+  save_dir: artifacts/model
+  model_name: cnn_model.pkl
+
+
+train:
+  save_dir: results
+  checkpoint_dir: callbacks/checkpoints
+  checkpoint_name: checkpoint_latest.pth.tar
+  result_name: train_results.json
+  final_model_save_path: callbacks/final_model/cnn_model.pkl
+
+
+test:
+  test_dataset_path: artifacts/data_transformation/test_dataset.pkl
+  save_dir: results
+  result_name: test_results.json
+  final_model_path: callbacks/final_model/cnn_model.pkl # u can use any model
+  checkpoint_path: callbacks/checkpoints/checkpoint_latest.pth.tar # u can use any checkpoint
+  tested_model_save_path: callbacks/tested_model/tested_best_model.pkl
+
+
+prediction:
+  local_data_folder: predict_artifacts/images
+  save_dir: predict_artifacts/results
+  image_path_name: prediction_image_paths.json
+  result_name: prediction_result.json
+
+  # the configs blow is determined by the processes above
+  final_model_path: callbacks/final_model/cnn_model.pkl
+  label_names_path: artifacts/data_ingestion/label_name.json
+
+  
+
+
+
